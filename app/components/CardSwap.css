@@ -1,0 +1,43 @@
+.card-swap-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(2%, 7%);
+  transform-origin: bottom right;
+  perspective: 1100px;
+  overflow: visible;
+}
+
+.card-swap-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(23, 32, 42, .14);
+  border-radius: 18px;
+  background: #f7f5ef;
+  box-shadow: 0 28px 80px rgba(24, 50, 72, .2);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-swap-card img { width: 100%; height: 100%; object-fit: cover; }
+.card-swap-card::after { content: "OPEN SAMPLE ↗"; position: absolute; right: 18px; bottom: 16px; padding: 8px 11px; border-radius: 999px; background: rgba(20, 38, 55, .86); color: white; font-size: 8px; letter-spacing: .14em; opacity: 0; transform: translateY(5px); transition: opacity .25s ease, transform .25s ease; }
+.card-swap-card:hover::after, .card-swap-card:focus-visible::after { opacity: 1; transform: none; }
+.card-swap-card:focus-visible { outline: 3px solid #e99663; outline-offset: 5px; }
+
+@media (max-width: 1100px) {
+  .card-swap-container { transform: scale(.78) translate(14%, 16%); }
+}
+
+@media (max-width: 760px) {
+  .card-swap-container { right: 50%; transform: translate(50%, 8%) scale(.74); transform-origin: bottom center; }
+}
+
+@media (max-width: 480px) {
+  .card-swap-container { transform: translate(50%, 13%) scale(.52); }
+}
